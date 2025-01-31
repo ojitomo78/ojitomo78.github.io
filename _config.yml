@@ -18,6 +18,10 @@ title: Ojitomo Web
 email:
 description: "Pagina Web de ojitomo donde publica reseñas, tutoriales, guias o culaquier otra cosa de interes propio."
 logo: "/assets/images/logo.png"
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "ojitomo"
 twitter_username: username
 github_username: username
 minimal_mistakes_skin: "sunrise"
@@ -33,6 +37,7 @@ paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
+  - _includes
   - _pages
 
 # Exclude from processing.
