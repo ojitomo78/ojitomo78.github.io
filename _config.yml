@@ -65,20 +65,17 @@ plugins:
 author:
   name   : "Ojitomo78"
   avatar : "/assets/images/bio-photo.png"
-  bio    : "Solo un friki mas en internet"
+  bio    : "Solo salto entre mundos"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://ojitomo78.github.io/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://x.com/Ojitomo78"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/ojitomo78"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/ojitomo78/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ojitomo78"
 
 footer:
   links:
