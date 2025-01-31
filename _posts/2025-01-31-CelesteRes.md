@@ -1,10 +1,10 @@
 ---
 title: Celeste
 excerpt_separator: <!--more-->
-date: 2025-01-31
+date: 2025-01-31T00:00:00.000Z
 categories:
-  . Videojuegos
-tags: 
+  - Videojuegos
+tags:
   - Reseñas
 header:
   teaser: /assets/images/CelesteRes.webp
@@ -15,12 +15,6 @@ Pues aunque su historia no es su fuerte, si le prestas atencion es bastante agra
 
 Dejando de lado su historia donde mas destaca el juego es en su gameplay, principalmente en su dificultad, pues a pesar de que sus mecanicas son simple, son estas las que se encargan junto al diseño de niveles, en ir elevando la dificultad poco a poco, implementado en cada capitulo una nueva mecanica que hay que aprender a dominar para no morir en el intento.
 
-
-  ![](https://static.wikitide.net/celestewiki/7/71/SummitIcon.png)
-
+![image-right](https://static.wikitide.net/celestewiki/7/71/SummitIcon.png){: .align-right}
 
 Holaaaaaaaaaa
-
-
-
-
