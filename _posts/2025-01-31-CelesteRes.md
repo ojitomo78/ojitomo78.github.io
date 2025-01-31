@@ -1,9 +1,13 @@
 ---
-title: Hola mundo
-date: {}
-tags: Reseñas
+title: Celeste
+excerpt_separator: <!--more-->
+date: 2025-01-31
+categories:
+  . Videojuegos
+tags: 
+  - Reseñas
 header:
-  teaser: /assets/images/kirby.jpg
+  teaser: /assets/images/CeslesteRes.webp
 ---
 Celeste es un juego que me ha cautivado gracias a su historia y su sencilles en su gameplay.
 
