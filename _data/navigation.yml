@@ -1,0 +1,5 @@
+main:
+  - title: "Colecciones"
+    url: /categories/
+  - title: "Contenido"
+    url: /tags/
