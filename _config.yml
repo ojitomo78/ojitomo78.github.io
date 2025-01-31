@@ -91,6 +91,9 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/ojitomo78/"
+    - label: "Post por Año"
+      icon: "fa-solid fa-calendar-days"
+      url: "/posts/"
 
 defaults:
   # _posts
