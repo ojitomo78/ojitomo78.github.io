@@ -36,7 +36,7 @@ El estilo pixel art de *Celeste* es hermoso y detallado, pero es su banda sonora
 
 ## Conclusión: Un juego que deja huella
 
-![Bounceline](https://static.wikitide.net/celestewiki/6/6a/Bounceline.gif){: .align-left}
+![Bounceline](https://static.wikitide.net/celestewiki/6/6a/Bounceline.gif){: .align-right}
 
 En definitiva, *Celeste* es un juego que no solo te desafía a superar obstáculos en la pantalla, sino que también te invita a reflexionar sobre tus propias luchas internas. Es una experiencia que te deja con una sensación de logro y crecimiento personal. Si buscas un juego que te desafíe y te emocione, no dudes en darle una oportunidad a *Celeste*. ¡No te arrepentirás!
 
