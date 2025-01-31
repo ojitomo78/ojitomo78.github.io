@@ -10,8 +10,7 @@ header:
   teaser: /assets/images/CelesteRes.webp
 excerpt: >-
   Celeste no es solo un juego de plataformas; es una experiencia que combina una
-  narrativa conmovedora con un desafío que pone a prueba tus habilidades y tu
-  perseverancia.
+  narrativa conmovedora con un desafío que pone a prueba tus habilidades.
 ---
 # Reseña de Celeste: Un viaje emocional y desafiante
 
