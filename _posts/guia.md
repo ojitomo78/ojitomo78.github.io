@@ -1,6 +1,6 @@
 ---
 title: "Celeste"
-excerpt_separator: "<!--more-->"
+excerpt_separator: <!--more-->
 categories:
   - Videojuegos
 tags:
