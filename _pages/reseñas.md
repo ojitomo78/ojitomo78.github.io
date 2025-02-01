@@ -1,7 +1,7 @@
 ---
 title: Reseñas
-layout: categories
-permalink: /tags/reseñas/
+layout: tags
+permalink: /categories/reseñas/
 entries_layout: grid
 author_profile: false
 ---

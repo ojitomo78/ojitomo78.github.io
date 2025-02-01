@@ -3,9 +3,9 @@ title: Celeste
 excerpt_separator: <!--more-->
 date: 2025-01-31T00:00:00.000Z
 categories:
-  - Videojuegos
-tags:
   - Reseñas
+tags:
+  - Videojuegos
 header:
   teaser: /assets/images/CelesteRes.webp
 excerpt: >-

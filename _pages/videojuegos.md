@@ -1,7 +1,7 @@
 ---
 title: Videojuegos
-layout: tags
-permalink: /categories/videojuegos/
+layout: categories
+permalink: /tags/videojuegos/
 entries_layout: grid
 author_profile: false
 ---
