@@ -6,4 +6,6 @@ layout: home
 author_profile: false
 entries_layout: grid
 excerpt: "Pagina Web de ojitomo donde publica reseñas, tutoriales, guias o culaquier otra cosa de interes propio."
+header:
+  teaser: /assets/images/bio-photo.png
 ---
