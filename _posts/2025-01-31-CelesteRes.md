@@ -1,5 +1,5 @@
 ---
-title: Celeste
+title: 'Reseña de Celeste: Un viaje emocional y desafiante'
 excerpt_separator: <!--more-->
 date: 2025-01-31T00:00:00.000Z
 categories:
@@ -12,8 +12,6 @@ excerpt: >-
   Celeste no es solo un juego de plataformas; es una experiencia que combina una
   narrativa conmovedora con un desafío que pone a prueba tus habilidades.
 ---
-# Reseña de Celeste: Un viaje emocional y desafiante
-
 ![Madeline](https://static.wikitide.net/celestewiki/e/e1/Madeline_portrait.png){: .align-right}
 
 *Celeste* no es solo un juego de plataformas; es una experiencia que combina una narrativa conmovedora con un desafío que pone a prueba tus habilidades y tu perseverancia. Aunque la historia no es el aspecto más destacado del juego, su mensaje sobre la depresión y la autoaceptación es profundo y conmovedor. La montaña Celeste sirve como una metáfora poderosa para enfrentar nuestros propios demonios internos.
