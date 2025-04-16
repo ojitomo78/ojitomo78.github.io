@@ -118,13 +118,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-#jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layouts:
-    category: liquid
-    tag: liquid
-  #permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
