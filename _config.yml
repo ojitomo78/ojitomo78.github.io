@@ -123,8 +123,8 @@ jekyll-archives:
     - categories
     - tags
   layouts:
-    category: archive-taxonomy
-    tag: archive-taxonomy
+    category: liquid
+    tag: liquid
   permalinks:
     category: /categories/:name/
     tag: /tags/:name/
