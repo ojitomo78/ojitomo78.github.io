@@ -112,12 +112,12 @@ defaults:
       layout: single
       author_profile: true
 
-#category_archive:
-  #type: jekyll-archives
-  #path: /categories/
-#tag_archive:
-  #type: jekyll-archives
-  #path: /tags/
+category_archive:
+  type: jekyll-archives
+  path: /categories/
+tag_archive:
+  type: jekyll-archives
+  path: /tags/
 jekyll-archives:
   enabled:
     - categories
