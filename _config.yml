@@ -22,6 +22,7 @@ comments:
   provider: "disqus"
   disqus:
     shortname: "ojitomo"
+    enabled: true
 twitter_username: username
 github_username: username
 minimal_mistakes_skin: "sunrise"
