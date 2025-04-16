@@ -125,6 +125,6 @@ jekyll-archives:
   layouts:
     category: liquid
     tag: liquid
-  permalinks:
+  #permalinks:
     category: /categories/:name/
     tag: /tags/:name/
