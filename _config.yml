@@ -1,15 +1,22 @@
-# Bienvenido a Jekyll!
+# Welcome to Jekyll!
 #
-# Este archivo de configuración está destinado a configuraciones que afectan todo tu blog,
-# valores que deberías configurar una vez y editar raramente después de eso. Si te encuentras
-# editando este archivo con frecuencia, considera usar los archivos de datos de Jekyll para la
-# información que necesitas actualizar con frecuencia.
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-# Configuración del sitio
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
 locale: "es-ES"
 title: Ojitomo Web
 email:
-description: "Pagina Web de ojitomo donde publica reseñas, tutoriales, guías o cualquier otra cosa de interés propio."
+description: "Pagina Web de ojitomo donde publica reseñas, tutoriales, guias o culaquier otra cosa de interes propio."
 logo: "/assets/images/logo.png"
 comments:
   provider: "disqus"
@@ -21,20 +28,32 @@ github_username: username
 minimal_mistakes_skin: "sunrise"
 search: true
 
-# Configuración de la construcción
+# Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
-# Salida
+# Outputting
 permalink: /:collection/:title/
-paginate: 5
+paginate: 5 # amount of posts to show
 paginate_path: /page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-# Archivos a incluir
 include:
   - _includes
   - _pages
 
-# Plugins
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# Plugins (previously gems:)
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -44,7 +63,6 @@ plugins:
   - jekyll-include-cache
   - jekyll-archives
 
-# Información del autor
 author:
   name   : "Ojitomo78"
   avatar : "/assets/images/bio-photo.png"
@@ -60,7 +78,6 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ojitomo78"
 
-# Enlace del pie de página
 footer:
   links:
     - label: "Twitter"
@@ -96,7 +113,6 @@ defaults:
       layout: single
       author_profile: true
 
-# Archivos de categorías y etiquetas
 category_archive:
   type: jekyll-archives
   path: /categories/
