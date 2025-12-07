@@ -35,3 +35,7 @@ Y entre todos esos experimentos siempre hay joyas escondidas esperando ser descu
 ## Una invitación
 
 Con este post quiero animarte a probar más juegos indie fuera de los más conocidos. Hay mundos increíbles creados por personas que quizá solo querían contar una historia o probar una idea. Y quién sabe… tal vez el próximo juego que descubras se convierta en tu favorito.
+
+<span style="color: transparent; -webkit-text-fill-color: transparent;">
+  JUEGUEN CELESTE.
+</span>
