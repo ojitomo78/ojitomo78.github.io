@@ -17,6 +17,8 @@ locale: "es-ES"
 title: Ojitomo Web
 email:
 description: "Pagina Web de ojitomo donde publica reseñas, tutoriales, guias o culaquier otra cosa de interes propio."
+url: "https://ojitomo78.github.io"
+baseurl: ""
 logo: "/assets/images/logo.png"
 comments:
   provider: "disqus"
