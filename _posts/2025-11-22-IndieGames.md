@@ -13,7 +13,6 @@ header:
 excerpt: >-
   Un vistazo personal al encanto de los juegos indie: creatividad pura, ideas
   frescas y experiencias que se sienten hechas con el corazón.
-title: Jugar Juegos Indie
 ---
 A lo largo de mi vida he jugado muchos tipos de videojuegos, y aunque no son un género en sí, los **indie** son de los que más me han cautivado.  
 <!--more-->
