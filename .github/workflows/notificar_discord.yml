@@ -1,0 +1,61 @@
+name: Notificar Nuevo Post en Discord
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '_posts/**' # 🌟 Solo se activa si cambia o se añade un post
+
+jobs:
+  discord_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # Para poder revisar qué archivo cambió
+
+      - name: Extraer datos del último post
+        id: post_data
+        run: |
+          # Buscar el archivo .md modificado o añadido en _posts
+          FILE=$(git diff --name-only HEAD~1 HEAD | grep '^_posts/' | head -n 1)
+          
+          # Extraer título, descripción y teaser usando comandos limpios
+          TITLE=$(sed -n '/^title:/,/^---/p' "$FILE" | head -n 1 | sed "s/^title: //" | tr -d "'\"")
+          EXCERPT=$(sed -n '/^excerpt:/,/^---/p' "$FILE" | head -n 1 | sed "s/^excerpt: //" | tr -d "'\"")
+          TEASER=$(sed -n '/^teaser:/,/^---/p' "$FILE" | head -n 1 | sed "s/^teaser: //" | tr -d "'\"")
+          
+          # Si el teaser es una ruta relativa, le sumamos tu dominio
+          if [[ "$TEASER" == /* ]]; then
+            TEASER="https://ojitomo78.github.io$TEASER"
+          fi
+
+          # Generar la URL basada en el nombre del archivo (ej: 2026-02-14-Cumbres-Borrascosas.md -> Cumbres-Borrascosas)
+          SLUG=$(basename "$FILE" .md | cut -d'-' -f4-)
+          URL="https://ojitomo78.github.io/posts/$SLUG/"
+
+          # Guardar variables para el siguiente paso
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "excerpt=$EXCERPT" >> $GITHUB_OUTPUT
+          echo "url=$URL" >> $GITHUB_OUTPUT
+          echo "teaser=$TEASER" >> $GITHUB_OUTPUT
+
+      - name: Enviar Embed a Discord
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: '|| @everyone || 📢 Villa ha publicado un nuevo Post en: ${{ steps.post_data.outputs.url }}'
+          # Aquí mapeamos exactamente la estructura visual que mostraste en tu imagen
+          embed: |
+            {
+              "title": "${{ steps.post_data.outputs.title }}",
+              "description": "${{ steps.post_data.outputs.excerpt }}",
+              "url": "${{ steps.post_data.outputs.url }}",
+              "color": 11276051, 
+              "thumbnail": {
+                "url": "${{ steps.post_data.outputs.teaser }}"
+              }
+            }
