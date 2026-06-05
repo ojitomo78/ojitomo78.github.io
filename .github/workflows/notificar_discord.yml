@@ -16,10 +16,15 @@ jobs:
         with:
           fetch-depth: 2
 
+      # ⏳ EL FRENO DE MANO: Espera a que GitHub Pages termine de compilar
+      - name: Esperar a que la página esté en vivo
+        run: |
+          echo "Esperando 120 segundos para asegurar que GitHub Pages compile el sitio..."
+          sleep 120
+
       - name: Extraer datos del último post
         id: post_data
         run: |
-          # Buscar el archivo .md modificado o añadido en _posts
           FILE=$(git diff --name-only HEAD~1 HEAD | grep '^_posts/' | head -n 1)
           
           if [ -z "$FILE" ]; then
@@ -27,7 +32,6 @@ jobs:
             exit 0
           fi
 
-          # Extraer los metadatos limpiando comillas
           TITLE=$(grep '^title:' "$FILE" | head -n 1 | sed 's/^title:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
           EXCERPT=$(grep '^excerpt:' "$FILE" | head -n 1 | sed 's/^excerpt:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
           TEASER=$(grep 'teaser:' "$FILE" | head -n 1 | sed 's/.*teaser:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
@@ -39,10 +43,8 @@ jobs:
           SLUG=$(basename "$FILE" .md | cut -d'-' -f4-)
           URL="https://ojitomo78.github.io/posts/$SLUG/"
 
-          # 🎲 GENERAR COLOR ALEATORIO (Decimal entre 0 y 16777215)
           RANDOM_COLOR=$((RANDOM % 16777216))
 
-          # Guardar las variables para el siguiente paso
           echo "title=$TITLE" >> $GITHUB_OUTPUT
           echo "excerpt=$EXCERPT" >> $GITHUB_OUTPUT
           echo "url=$URL" >> $GITHUB_OUTPUT
@@ -53,11 +55,10 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          # Enviamos el JSON con el color dinámico generado arriba
           curl -H "Content-Type: application/json" \
                -X POST \
                -d '{
-                 "content": "|| @everyone || 📢 **Villa** ha publicado un nuevo Post en: '"${{ secrets.URL_A_ANUNCIAR || steps.post_data.outputs.url }}"'",
+                 "content": "|| @everyone || 📢 **Villa** ha publicado un nuevo Post en: '"${{ steps.post_data.outputs.url }}"'",
                  "embeds": [
                    {
                      "title": "'"${{ steps.post_data.outputs.title }}"'",
