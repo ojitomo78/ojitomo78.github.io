@@ -2,9 +2,8 @@ backend:
   name: git-gateway
   repo: ojitomo78/ojitomo78.github.io
   branch: master
-  site_url: https://ojitomo78.netlify.app # 👈 ¡AÑADE ESTA LÍNEA MÁGICA!
 
-media_folder: "assets/images" # Carpeta donde se guardarán las fotos que subas
+media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
@@ -13,14 +12,33 @@ collections:
     folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    # 🌟 CONFIGURACIÓN DEL FORMATO DE FECHA (Formato YYYY-MM-DD)
+    date_format: "YYYY-MM-DD"
+    time_format: false
+    format: "yaml-frontmatter"
     fields:
-      - { label: "Diseño (Layout)", name: "layout", widget: "hidden", default: "single" }
+      # 1. Título (Igual a como lo hacías)
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha", name: "date", widget: "datetime" }
+      
+      # 2. Separador de extracto (Inyectado automáticamente oculto para que no te estorbe)
+      - { label: "Excerpt Separator", name: "excerpt_separator", widget: "hidden", default: "<!--more-->" }
+      
+      # 3. Fecha (Configurada para que solo guarde la fecha sin la zona horaria larga si no la quieres)
+      - { label: "Fecha", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      
+      # 4. Categorías y Etiquetas
+      - { label: "Categorías", name: "categories", widget: "list", default: ["Reseñas"] }
+      - { label: "Etiquetas (Tags)", name: "tags", widget: "list" }
+      
+      # 5. Imagen Destacada (Corregido a "teaser" dentro del objeto header)
+      - label: "Configuración del Header"
+        name: "header"
+        widget: "object"
+        fields:
+          - { label: "Imagen Teaser (Miniatura)", name: "teaser", widget: "image", required: false }
+      
+      # 6. Extracto / Resumen corto
       - { label: "Descripción / Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Categorías", name: "categories", widget: "list", required: false }
-      - { label: "Etiquetas (Tags)", name: "tags", widget: "list", required: false }
-      - { label: "Imagen de portada", name: "header", widget: "object", required: false, fields: [
-          { label: "Imagen", name: "overlay_image", widget: "image", required: false }
-        ]}
+      
+      # 7. El cuerpo del post
       - { label: "Cuerpo del Post", name: "body", widget: "markdown" }
