@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: ojitomo78/ojitomo78.github.io
   branch: master # O master, la que use tu blog para compilar
 
