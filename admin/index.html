@@ -4,20 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Administración</title>
+    <!-- 1. Cargamos el script de Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </head>
-  <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
+    
+    <!-- 2. Inicializamos la API de inmediato en el head para que Decap la encuentre -->
     <script>
-      // 1. Esto inicializa el widget apuntando directamente a tu Netlify
-      document.addEventListener("DOMContentLoaded", function () {
-        window.netlifyIdentity.widget.init({
-          APIUrl: "https://ojitomo78.netlify.app/.netlify/identity" // 
-        });
-      });
-
-      // 2. Esto maneja la redirección cuando inicias sesión con éxito
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
@@ -28,5 +19,9 @@
         });
       }
     </script>
+  </head>
+  <body>
+    <!-- 3. Cargamos Decap CMS al final del body -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
