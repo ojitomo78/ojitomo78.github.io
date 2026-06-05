@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '_posts/**' # 🌟 Solo se activa si cambia o se añade un post
+      - '_posts/**'
 
 jobs:
   discord_notification:
@@ -14,7 +14,7 @@ jobs:
       - name: Clonar repositorio
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2 # Para poder revisar qué archivo cambió
+          fetch-depth: 2
 
       - name: Extraer datos del último post
         id: post_data
@@ -22,40 +22,51 @@ jobs:
           # Buscar el archivo .md modificado o añadido en _posts
           FILE=$(git diff --name-only HEAD~1 HEAD | grep '^_posts/' | head -n 1)
           
-          # Extraer título, descripción y teaser usando comandos limpios
-          TITLE=$(sed -n '/^title:/,/^---/p' "$FILE" | head -n 1 | sed "s/^title: //" | tr -d "'\"")
-          EXCERPT=$(sed -n '/^excerpt:/,/^---/p' "$FILE" | head -n 1 | sed "s/^excerpt: //" | tr -d "'\"")
-          TEASER=$(sed -n '/^teaser:/,/^---/p' "$FILE" | head -n 1 | sed "s/^teaser: //" | tr -d "'\"")
+          # Si no hay archivo válido, terminar pacíficamente
+          if [ -z "$FILE" ]; then
+            echo "No se encontraron posts nuevos."
+            exit 0
+          fi
+
+          # Extraer los metadatos limpiando comillas simples y espacios en las puntas
+          TITLE=$(grep '^title:' "$FILE" | head -n 1 | sed 's/^title:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
+          EXCERPT=$(grep '^excerpt:' "$FILE" | head -n 1 | sed 's/^excerpt:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
+          TEASER=$(grep 'teaser:' "$FILE" | head -n 1 | sed 's/.*teaser:[[:space:]]*//' | sed "s/^'//;s/'$//;s/^\"//;s/\"$//")
           
           # Si el teaser es una ruta relativa, le sumamos tu dominio
           if [[ "$TEASER" == /* ]]; then
             TEASER="https://ojitomo78.github.io$TEASER"
           fi
 
-          # Generar la URL basada en el nombre del archivo (ej: 2026-02-14-Cumbres-Borrascosas.md -> Cumbres-Borrascosas)
+          # Generar el slug de la URL basándonos en el nombre del archivo
           SLUG=$(basename "$FILE" .md | cut -d'-' -f4-)
           URL="https://ojitomo78.github.io/posts/$SLUG/"
 
-          # Guardar variables para el siguiente paso
+          # Guardar las variables escapando cualquier problema de saltos de línea
           echo "title=$TITLE" >> $GITHUB_OUTPUT
           echo "excerpt=$EXCERPT" >> $GITHUB_OUTPUT
           echo "url=$URL" >> $GITHUB_OUTPUT
           echo "teaser=$TEASER" >> $GITHUB_OUTPUT
 
-      - name: Enviar Embed a Discord
-        uses: Ilshidur/action-discord@master
+      - name: Enviar a Discord vía cURL
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        with:
-          args: '|| @everyone || 📢 Villa ha publicado un nuevo Post en: ${{ steps.post_data.outputs.url }}'
-          # Aquí mapeamos exactamente la estructura visual que mostraste en tu imagen
-          embed: |
-            {
-              "title": "${{ steps.post_data.outputs.title }}",
-              "description": "${{ steps.post_data.outputs.excerpt }}",
-              "url": "${{ steps.post_data.outputs.url }}",
-              "color": 11276051, 
-              "thumbnail": {
-                "url": "${{ steps.post_data.outputs.teaser }}"
-              }
-            }
+          WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          # Construimos el JSON exacto que Discord espera recibir
+          # Color 11276051 es un tono rojo oscuro similar al de tu imagen
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{
+                 "content": "|| @everyone || 📢 **Villa** ha publicado un nuevo Post en: '"${{ steps.post_data.outputs.url }}"'",
+                 "embeds": [
+                   {
+                     "title": "'"${{ steps.post_data.outputs.title }}"'",
+                     "description": "'"${{ steps.post_data.outputs.excerpt }}"'",
+                     "url": "'"${{ steps.post_data.outputs.url }}"'",
+                     "color": 11276051,
+                     "thumbnail": {
+                       "url": "'"${{ steps.post_data.outputs.teaser }}"'"
+                     }
+                   }
+                 ]
+               }' $WEBHOOK_URL
