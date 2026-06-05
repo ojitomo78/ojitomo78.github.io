@@ -4,16 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Administración</title>
-    <!-- Script de Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Script de Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
     <script>
-      // 👈 ESTO ES LO IMPORTANTE:
-      // Le dice a tu dominio de GitHub Pages que use el motor de login de Netlify
+      // 1. Esto inicializa el widget apuntando directamente a tu Netlify
+      document.addEventListener("DOMContentLoaded", function () {
+        window.netlifyIdentity.widget.init({
+          APIUrl: "https://ojitomo78.netlify.app/.netlify/identity" // 
+        });
+      });
+
+      // 2. Esto maneja la redirección cuando inicias sesión con éxito
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
