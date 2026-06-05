@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: ojitomo78/ojitomo78.github.io
+  branch: master # O master, la que use tu blog para compilar
+
+media_folder: "assets/images" # Carpeta donde se guardarán las fotos que subas
+public_folder: "/assets/images"
+
+collections:
+  - name: "blog"
+    label: "Entradas del Blog"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Diseño (Layout)", name: "layout", widget: "hidden", default: "single" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Descripción / Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Categorías", name: "categories", widget: "list", required: false }
+      - { label: "Etiquetas (Tags)", name: "tags", widget: "list", required: false }
+      - { label: "Imagen de portada", name: "header", widget: "object", required: false, fields: [
+          { label: "Imagen", name: "overlay_image", widget: "image", required: false }
+        ]}
+      - { label: "Cuerpo del Post", name: "body", widget: "markdown" }
