@@ -24,7 +24,7 @@ collections:
       - { label: "Excerpt Separator", name: "excerpt_separator", widget: "hidden", default: "<!--more-->" }
       
       # 3. Fecha (Configurada para que solo guarde la fecha sin la zona horaria larga si no la quieres)
-      - { label: "Fecha", name: "date", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       
       # 4. Categorías y Etiquetas
       - { label: "Categorías", name: "categories", widget: "list", default: ["Reseñas"] }
