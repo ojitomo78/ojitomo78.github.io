@@ -1,5 +1,5 @@
 ---
-title: 'Cumbres Borrascosas: amar hasta desgarrarse'
+title: "Cumbres Borrascosas: Amar hasta desgarrarse"
 excerpt_separator: <!--more-->
 date: 2026-02-14T00:00:00.000Z
 categories:
@@ -10,10 +10,10 @@ tags:
   - Drama
 header:
   teaser: /assets/images/CumbresBorrascosasRes.webp
-excerpt: >-
-  Cumbres Borrascosas no presenta un romance idealizado, sino una historia donde
-  el amor se vive como herida, identidad y tormenta. Una experiencia intensa que
-  transforma la pasión en tragedia y convierte cada imagen en emoción contenida.
+excerpt: Cumbres Borrascosas no presenta un romance idealizado, sino una
+  historia donde el amor se vive como herida, identidad y tormenta. Una
+  experiencia intensa que transforma la pasión en tragedia y convierte cada
+  imagen en emoción contenida.
 ---
 
 *Cumbres Borrascosas* no propone un amor ideal. No ofrece consuelo. No promete finales luminosos. Lo que presenta es algo mucho más inquietante: el amor como fuerza que construye y destruye al mismo tiempo.
